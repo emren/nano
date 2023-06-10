@@ -26,7 +26,6 @@ class _ProductPageState extends State<ProductPage> {
   void didChangeDependencies() {
     orderProduct(context, index);
     super.didChangeDependencies();
-
   }
 
   @override
@@ -46,9 +45,9 @@ class _ProductPageState extends State<ProductPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.all(
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
@@ -58,9 +57,9 @@ class _ProductPageState extends State<ProductPage> {
                     child: const Icon(Icons.arrow_back),
                   ),
                   Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.all(
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
@@ -107,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
         return StatefulBuilder(
           builder: (BuildContext context, state) {
             return Container(
-              height: 500,
+              height: isOpen ? 500 : 300,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                   color: Colors.white,
@@ -135,8 +134,11 @@ class _ProductPageState extends State<ProductPage> {
                           ),
                           height: 40,
                           width: 40,
-                          child: const Icon(Icons.arrow_drop_down,
-                              color: Palette.light_blue),
+                          child: isOpen
+                              ? const Icon(Icons.arrow_drop_down,
+                                  color: Palette.light_blue)
+                              : const Icon(Icons.arrow_drop_up,
+                                  color: Palette.light_blue),
                         ),
                       ],
                     ),
