@@ -98,7 +98,7 @@ class _ProductPageState extends State<ProductPage> {
 
   Future orderProduct(context, int index) async {
     var storeProvider = Provider.of<StoreProvider>(context);
-    bool isOpen = true;
+    bool isReviewOpen = true;
     await showModalBottomSheet(
       barrierColor: Colors.transparent,
       context: context,
@@ -106,7 +106,7 @@ class _ProductPageState extends State<ProductPage> {
         return StatefulBuilder(
           builder: (BuildContext context, state) {
             return Container(
-              height: isOpen ? 500 : 300,
+              height: isReviewOpen ? 500 : 300,
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                   color: Colors.white,
@@ -117,7 +117,7 @@ class _ProductPageState extends State<ProductPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      isOpen = !isOpen;
+                      isReviewOpen = !isReviewOpen;
 
                       state(() {
                         setState(() {});
@@ -134,7 +134,7 @@ class _ProductPageState extends State<ProductPage> {
                           ),
                           height: 40,
                           width: 40,
-                          child: isOpen
+                          child: isReviewOpen
                               ? const Icon(Icons.arrow_drop_down,
                                   color: Palette.light_blue)
                               : const Icon(Icons.arrow_drop_up,
@@ -205,7 +205,7 @@ class _ProductPageState extends State<ProductPage> {
                       ),
                     ],
                   ),
-                  isOpen
+                  isReviewOpen
                       ? Container(
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,
