@@ -12,6 +12,9 @@ class StoreProvider extends BaseProvider {
     notifyListeners();
   }
 
+  bool isTrayOpen = true;
+
+
   void fetchStoreAds() async {
     String url = 'https://fakestoreapi.com/products';
     final response = await http.get(Uri.parse(url), headers: {
