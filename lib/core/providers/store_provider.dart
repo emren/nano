@@ -14,6 +14,22 @@ class StoreProvider extends BaseProvider {
 
   bool isTrayOpen = true;
 
+  Future<bool> auth(String email, String password) async {
+    String url = 'https://fakestoreapi.com/auth/login';
+    Uri uri = Uri.parse(url);
+    var response = await http.post(uri,
+        body: ({
+          'username': email,
+          'password': password,
+        }));
+
+    if (response.statusCode == 200) {
+      _token = json.decode(response.body)['token']!;
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   void fetchStoreAds() async {
     String url = 'https://fakestoreapi.com/products';
@@ -22,14 +38,10 @@ class StoreProvider extends BaseProvider {
       'Accept': 'application/json',
       'Authorization': 'Bearer $_token',
     });
-    print(_token);
     final body = response.body;
     final json = jsonDecode(body);
-    print(json);
     List<StoreModel> store =
         List<StoreModel>.from(json.map((model) => StoreModel.fromJson(model)));
-    print(store);
-    storeAds=store;
-    print(storeAds);
+    storeAds = store;
   }
 }
