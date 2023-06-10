@@ -12,7 +12,7 @@ class StoreProvider extends BaseProvider {
     notifyListeners();
   }
 
-  bool isTrayOpen = true;
+
 
   Future<bool> auth(String email, String password) async {
     String url = 'https://fakestoreapi.com/auth/login';
