@@ -1,7 +1,7 @@
 class StoreModel {
   int? id;
   String? title;
-  double? price;
+  num? price;
   String? description;
   String? category;
   String? image;
@@ -41,7 +41,7 @@ class StoreModel {
 }
 
 class Rating {
-  double? rate;
+  num? rate;
   int? count;
 
   Rating({
