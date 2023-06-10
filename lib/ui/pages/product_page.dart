@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:provider/provider.dart';
 
+
 import '../../core/providers/store_provider.dart';
 import '../theme/palette.dart';
 
@@ -106,6 +107,7 @@ class _ProductPageState extends State<ProductPage> {
       barrierColor: Colors.transparent,
       context: context,
       builder: (BuildContext context) {
+
         return Container(
           height: 500,
           width: MediaQuery.of(context).size.width,

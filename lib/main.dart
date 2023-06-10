@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nano/ui/pages/login_screen.dart';
+import 'package:nano/ui/pages/store_page.dart';
 import 'package:nano/ui/theme/palette.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Palette.light_blue),
           useMaterial3: true,
         ),
-        home: const LoginScreen(),
+        //home: const LoginScreen(),
+        home: const StorePage(),
       ),
     );
   }
